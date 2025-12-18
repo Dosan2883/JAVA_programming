@@ -28,18 +28,16 @@ public class SelectPanel extends JPanel {
 	private ImageIcon ch022 = new ImageIcon("img/select/selectedCh2.png");
 	private ImageIcon ch033 = new ImageIcon("img/select/selectedCh3.png");
 	private ImageIcon ch044 = new ImageIcon("img/select/selectedCh4.png");
-
-	// 시작 버튼 이미지아이콘
-	private ImageIcon start = new ImageIcon("img/select/GameStartBtn.png");
+	
+	private ImageIcon back = new ImageIcon("img/select/BackPanelBtn.png");
+	
+	private JButton BackBtn;
 	
 	// 이미지를 선택할 버튼
 	private JButton ch1;
 	private JButton ch2;
 	private JButton ch3;
 	private JButton ch4;
-
-	// 시작 버튼
-	private JButton StartBtn;
 	
 	// 게임에서 사용할 쿠키 이미지들을 담을 오브젝트
 	private CookieImg ci;
@@ -50,16 +48,6 @@ public class SelectPanel extends JPanel {
 	}
 
 	public SelectPanel(Object o) {
-
-		// 시작 버튼
-		StartBtn = new JButton(start);
-		StartBtn.setName("StartBtn");
-		StartBtn.addMouseListener((MouseListener) o);
-		StartBtn.setBounds(254, 334, 291, 81);
-		add(StartBtn);
-		StartBtn.setBorderPainted(false);
-		StartBtn.setContentAreaFilled(false);
-		StartBtn.setFocusPainted(false);
 
 		// 캐릭터 ch1
 		ch1 = new JButton(ch01);
@@ -156,6 +144,15 @@ public class SelectPanel extends JPanel {
 		ch4.setBorderPainted(false);
 		ch4.setContentAreaFilled(false);
 		ch4.setFocusPainted(false);
+		
+		BackBtn = new JButton(back);
+		BackBtn.setName("BackBtn");
+		BackBtn.addMouseListener((MouseListener) o);
+		BackBtn.setBounds(50, 380, 210, 55);
+		add(BackBtn);
+		BackBtn.setBorderPainted(false);
+		BackBtn.setContentAreaFilled(false);
+		BackBtn.setFocusPainted(false);
 		
 		// 배경
 		JLabel selectBg = new JLabel("");

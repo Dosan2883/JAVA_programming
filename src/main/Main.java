@@ -14,9 +14,11 @@ import panels.EndPanel;
 import panels.GamePanel;
 import panels.IntroPanel;
 import panels.SelectPanel;
+import panels.LobbyPanel;
 import main.listenAdapter;
 
 import java.awt.CardLayout;
+import java.awt.Component;
 
 // windowBuilder 로 프레임만 제작하고 나머지는 입력
 
@@ -31,6 +33,8 @@ public class Main extends listenAdapter {
 	private GamePanel gamePanel; // 게임진행
 
 	private EndPanel endPanel; // 게임결과
+	
+	private LobbyPanel lobbyPanel;
 
 	private CardLayout cl; // 카드 레이이웃 오브젝트
 
@@ -80,18 +84,21 @@ public class Main extends listenAdapter {
 		introPanel = new IntroPanel();
 		introPanel.addMouseListener(this); // intro패널은 여기서 바로 넣는 방식으로 마우스리스너를 추가함.
 		
+		lobbyPanel = new LobbyPanel(this);
 		selectPanel = new SelectPanel(this); // Main의 리스너를 넣기위한 this
 		gamePanel = new GamePanel(frame, cl, this); // Main의 프레임 및 카드레이아웃을 이용하고 리스너를 넣기위한 this
 		endPanel = new EndPanel(this); // Main의 리스너를 넣기위한 this
 
 		// 모든 패널의 레이아웃을 null로 변환
 		introPanel.setLayout(null);
+		lobbyPanel.setLayout(null);
 		selectPanel.setLayout(null);
 		gamePanel.setLayout(null);
 		endPanel.setLayout(null);
 
 		// 프레임에 패널들을 추가한다.(카드 레이아웃을 위한 패널들)
 		frame.getContentPane().add(introPanel, "intro");
+		frame.getContentPane().add(lobbyPanel, "lobby");
 		frame.getContentPane().add(selectPanel, "select");
 		frame.getContentPane().add(gamePanel, "game");
 		frame.getContentPane().add(endPanel, "end");
@@ -106,8 +113,8 @@ public class Main extends listenAdapter {
 			} catch (InterruptedException e1) {
 				e1.printStackTrace();
 			}
-			cl.show(frame.getContentPane(), "select"); // select패널을 카드레이아웃 최상단으로 변경
-			selectPanel.requestFocus(); // 리스너를 select패널에 강제로 줌
+			cl.show(frame.getContentPane(), "lobby"); // select패널을 카드레이아웃 최상단으로 변경
+			lobbyPanel.requestFocus(); // 리스너를 select패널에 강제로 줌
 			
 		} else if (e.getComponent().getName().equals("StartBtn")) { // StartBtn이라는 이름을 가진 버튼을 눌렀다면
 			if (selectPanel.getCi() == null) {
@@ -125,12 +132,18 @@ public class Main extends listenAdapter {
 			gamePanel.setLayout(null);
 			frame.getContentPane().add(gamePanel, "game"); // 프레임에 새 게임패널 추가(카드레이아웃 하단)
 			
-			frame.getContentPane().remove(selectPanel); // 방금 선택했던 select패널을 삭제
-			selectPanel = new SelectPanel(this); // select 패널을 새 패널로 교체
-			selectPanel.setLayout(null);
-			frame.getContentPane().add(selectPanel, "select"); // 프레임에 새 select패널 추가(카드레이아웃 하단)
-			cl.show(frame.getContentPane(), "select"); // 새 select패널을 카드레이아웃 최상단으로 이동 (화면에 보임)
-			selectPanel.requestFocus(); // 리스너를 select패널에 강제로 줌
+			frame.getContentPane().remove(lobbyPanel); // 방금 선택했던 select패널을 삭제
+			lobbyPanel = new LobbyPanel(this); // select 패널을 새 패널로 교체
+			lobbyPanel.setLayout(null);
+			frame.getContentPane().add(lobbyPanel, "lobby"); // 프레임에 새 select패널 추가(카드레이아웃 하단)
+			cl.show(frame.getContentPane(), "lobby"); // 새 select패널을 카드레이아웃 최상단으로 이동 (화면에 보임)
+			lobbyPanel.requestFocus(); // 리스너를 select패널에 강제로 줌
+		} else if (e.getComponent().getName().equals("SelectBtn")) {
+			cl.show(frame.getContentPane(), "select");
+			selectPanel.requestFocus();
+		} else if (e.getComponent().getName().equals("BackBtn")) {
+			cl.show(frame.getContentPane(), "lobby");
+			lobbyPanel.requestFocus();
 		}
 	}
 }
