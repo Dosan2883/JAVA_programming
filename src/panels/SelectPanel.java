@@ -1,7 +1,6 @@
 package panels;
 
 import java.awt.Color;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -59,7 +58,8 @@ public class SelectPanel extends JPanel {
 				ch2.setIcon(ch02);
 				ch3.setIcon(ch03);
 				ch4.setIcon(ch04);
-				ci = new CookieImg(new ImageIcon("img/cookieimg/cookie1/player_origin.gif"),
+				ci = new CookieImg(new ImageIcon("img/select/selectCh1.png"),
+						new ImageIcon("img/cookieimg/cookie1/player_origin.gif"),
 						new ImageIcon("img/cookieimg/cookie1/player_up.gif"),
 						new ImageIcon("img/cookieimg/cookie1/player_doubleup.gif"),
 						new ImageIcon("img/cookieimg/cookie1/player_jumpend.png"),
@@ -83,7 +83,8 @@ public class SelectPanel extends JPanel {
 				ch2.setIcon(ch022);
 				ch3.setIcon(ch03);
 				ch4.setIcon(ch04);
-				ci = new CookieImg(new ImageIcon("img/cookieimg/cookie2/normal.gif"),
+				ci = new CookieImg(new ImageIcon("img/select/selectCh2.png"),
+						new ImageIcon("img/cookieimg/cookie2/normal.gif"),
 						new ImageIcon("img/cookieimg/cookie2/jump.gif"),
 						new ImageIcon("img/cookieimg/cookie2/doublejump.gif"),
 						new ImageIcon("img/cookieimg/cookie2/fall.png"),
@@ -107,7 +108,8 @@ public class SelectPanel extends JPanel {
 				ch2.setIcon(ch02);
 				ch3.setIcon(ch033);
 				ch4.setIcon(ch04);
-				ci = new CookieImg(new ImageIcon("img/cookieimg/cookie3/cookie.gif"),
+				ci = new CookieImg(new ImageIcon("img/select/selectCh3.png"),
+						new ImageIcon("img/cookieimg/cookie3/cookie.gif"),
 						new ImageIcon("img/cookieimg/cookie3/jump.png"),
 						new ImageIcon("img/cookieimg/cookie3/doublejump.gif"),
 						new ImageIcon("img/cookieimg/cookie3/fall.png"),
@@ -131,7 +133,8 @@ public class SelectPanel extends JPanel {
 				ch2.setIcon(ch02);
 				ch3.setIcon(ch03);
 				ch4.setIcon(ch044);
-				ci = new CookieImg(new ImageIcon("img/cookieimg/cookie4/kch.gif"),
+				ci = new CookieImg(new ImageIcon("img/select/selectCh4.png"),
+						new ImageIcon("img/cookieimg/cookie4/kch.gif"),
 						new ImageIcon("img/cookieimg/cookie4/kjump.gif"),
 						new ImageIcon("img/cookieimg/cookie4/kjump.gif"),
 						new ImageIcon("img/cookieimg/cookie4/kjump.gif"),

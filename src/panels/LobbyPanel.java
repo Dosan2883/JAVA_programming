@@ -20,7 +20,18 @@ public class LobbyPanel extends JPanel{
 	
 	private ImageIcon select = new ImageIcon("img/lobby/SelectBtn.png");
 	
+	private ImageIcon lobbyIc = new ImageIcon();
 	private CookieImg ci;
+	private JLabel selectCi;
+	
+	private void initCookieImg(CookieImg ci) {
+		lobbyIc = ci.getLobbyIc();
+	}
+	
+	public void setLobby(CookieImg ci) {
+		initCookieImg(ci);
+		selectCi.setIcon(this.lobbyIc);
+	}
 	
 	public LobbyPanel(Object o){
 		
@@ -42,11 +53,15 @@ public class LobbyPanel extends JPanel{
 		SelectBtn.setContentAreaFilled(false);
 		SelectBtn.setFocusPainted(false);
 		
+		selectCi = new JLabel("");
+		selectCi.setBounds(300, 150, 160, 210);
+		add(selectCi);
+		
 		JLabel selectBg = new JLabel("");
 		selectBg.setForeground(Color.ORANGE);
 		selectBg.setHorizontalAlignment(SwingConstants.CENTER);
 		selectBg.setIcon(new ImageIcon("img/lobby/lobbyBg.png"));
-		selectBg.setBounds(0, 0, 784, 461);
+		selectBg.setBounds(0, 0, 800, 500);
 		add(selectBg);
 	}
 }

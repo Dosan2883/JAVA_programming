@@ -1,7 +1,5 @@
 package ingame;
 
-import java.awt.Image;
-
 import javax.swing.ImageIcon;
 
 import lombok.AllArgsConstructor;
@@ -48,15 +46,23 @@ public class CookieImg {
 	public void setHitIc(ImageIcon hitIc) {
 		this.hitIc = hitIc;
 	}
+	public ImageIcon getLobbyIc() {
+		return lobbyIc;
+	}
+	public void setLobbyIc(ImageIcon lobbyIc) {
+		this.lobbyIc = lobbyIc;
+	}
 	private ImageIcon cookieIc; // 기본모션
 	private ImageIcon jumpIc; // 점프모션
 	private ImageIcon doubleJumpIc; // 더블점프모션
 	private ImageIcon fallIc; // 낙하모션(더블 점프 후)
 	private ImageIcon slideIc; // 슬라이드 모션
 	private ImageIcon hitIc; // 부딛히는 모션
-	public CookieImg(ImageIcon cookieIc, ImageIcon jumpIc, ImageIcon doubleJumpIc, ImageIcon fallIc, ImageIcon slideIc,
+	private ImageIcon lobbyIc;
+	public CookieImg(ImageIcon lobbyIc, ImageIcon cookieIc, ImageIcon jumpIc, ImageIcon doubleJumpIc, ImageIcon fallIc, ImageIcon slideIc,
 			ImageIcon hitIc) {
 		super();
+		this.lobbyIc = lobbyIc;
 		this.cookieIc = cookieIc;
 		this.jumpIc = jumpIc;
 		this.doubleJumpIc = doubleJumpIc;

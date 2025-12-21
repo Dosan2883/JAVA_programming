@@ -1,11 +1,9 @@
 package main;
 
+import java.awt.CardLayout;
 import java.awt.EventQueue;
-import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -13,12 +11,8 @@ import ingame.CookieImg;
 import panels.EndPanel;
 import panels.GamePanel;
 import panels.IntroPanel;
-import panels.SelectPanel;
 import panels.LobbyPanel;
-import main.listenAdapter;
-
-import java.awt.CardLayout;
-import java.awt.Component;
+import panels.SelectPanel;
 
 // windowBuilder 로 프레임만 제작하고 나머지는 입력
 
@@ -143,6 +137,12 @@ public class Main extends listenAdapter {
 			selectPanel.requestFocus();
 		} else if (e.getComponent().getName().equals("BackBtn")) {
 			cl.show(frame.getContentPane(), "lobby");
+			frame.getContentPane().remove(lobbyPanel);
+			lobbyPanel = new LobbyPanel(this);
+			lobbyPanel.setLayout(null);
+			frame.getContentPane().add(lobbyPanel, "lobby");
+			cl.show(frame.getContentPane(), "lobby");
+			lobbyPanel.setLobby(selectPanel.getCi());
 			lobbyPanel.requestFocus();
 		}
 	}
